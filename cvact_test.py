@@ -16,7 +16,6 @@ if __name__ == '__main__':
     opt.is_Train = True
     make_deterministic(opt.seed)
     os.environ['CUDA_VISIBLE_DEVICES'] = ','.join(str(x) for x in opt.gpu_ids)
-
     log = open(log_file, 'a')
     log_print = lambda ms: parse.log(ms, log)
 

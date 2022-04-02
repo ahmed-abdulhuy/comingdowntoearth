@@ -12,15 +12,15 @@ class Parser():
         parser.add_argument('--name', type=str, default='', help=' ')
         parser.add_argument('--seed', type=int, default=10)
         parser.add_argument('--phase', type=str, default='train', help='')
-        parser.add_argument('--gpu_ids', type=str, default='0, 1', help='gpu ids: e.g. 0  0,1')
+        parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1')
 
         parser.add_argument('--isTrain', default=True, action='store_true')
         parser.add_argument('--resume', default=True, action='store_true')
         parser.add_argument('--start_epoch', type=int, default=0)
 
         #data parameters
-        parser.add_argument('--data_root', type=str, default= './placeholder_data_path')
-        parser.add_argument('--train_csv', type=str, default='train-19zl.csv')
+        parser.add_argument('--data_root', type=str, default= '/kaggle/input/cvusa-dataset/cvusa-localization/')
+        parser.add_argument('--train_csv', type=str, default='splits/train-19zl.csv')
         parser.add_argument('--val_csv', type=str, default='val-19zl.csv')
         parser.add_argument('--polar', default=True, action='store_true')
         parser.add_argument('--save_step', type=int, default=10)
@@ -121,7 +121,7 @@ class Parser():
                 opt.gpu_ids.append(id)
         if len(opt.gpu_ids) > 0:
             torch.cuda.set_device(opt.gpu_ids[0])
-
+        
         self.opt = opt
         return self.opt, file
 

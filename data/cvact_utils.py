@@ -17,7 +17,6 @@ class CVACT(data.Dataset):
         idx = 0
         self.all_list, self.all_list_idx = [], []
         self.all_data = sio.loadmat(self.all_data_list)
-
         for i in range(0, len(self.all_data['panoIds'])):
             grd_id_ori = self.root + '_' + self.all_data['panoIds'][i] + '/' + self.all_data['panoIds'][i] + '_zoom_2.jpg'
             grd_id_align = self.root + 'streetview_polish/' + self.all_data['panoIds'][i] + '_grdView.jpg'
@@ -59,6 +58,7 @@ class CVACT(data.Dataset):
 
 
     def load_im(self, im_path, resize=None):
+        print(f'=======================im_path: {im_path}')
         im = cv2.imread(im_path)
         im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
         if resize:
