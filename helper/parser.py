@@ -22,7 +22,7 @@ class Parser():
         parser.add_argument('--data_root', type=str, default= '/kaggle/input/cvusa-dataset/cvusa-localization/')
         parser.add_argument('--train_csv', type=str, default='splits/train-19zl.csv')
         parser.add_argument('--val_csv', type=str, default='val-19zl.csv')
-        parser.add_argument('--polar', default=True, action='store_true')
+        parser.add_argument('--polar', default=False, action='store_true')
         parser.add_argument('--save_step', type=int, default=10)
 
         parser.add_argument('--rgan_checkpoint', type=str, default=None)
