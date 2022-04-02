@@ -190,7 +190,7 @@ class UnetGeneratorSkip(nn.Module):
         self.res6 = ResidualBlock(256)
 
         self.attention2 = Attention(256)
-        self.deconv3 = ResidualBlockUp(512, 128, upsample=2)
+        self.deconv3 = ResidualBlockUp(539, 128, upsample=2)
         self.in3_d = nn.InstanceNorm2d(128, affine=True)
         self.deconv2 = ResidualBlockUp(256, 64, upsample=2)
         self.in2_d = nn.InstanceNorm2d(64, affine=True)
