@@ -37,6 +37,8 @@ if __name__ == '__main__':
 
     rgan_wrapper = rgan_wrapper_cvact.RGANWrapper(opt, log_file, generator, discriminator, retrieval)
     # Configure data loader
+    opt.polar = False
+    print(f'=======polar:{opt.polar}')
     val_dataset = CVACT(root= opt.data_root, all_data_list = opt.data_list, use_polar=opt.polar, isTrain=False, transform_op=ToTensor())
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1, shuffle=False, num_workers=0)
 
