@@ -60,8 +60,6 @@ class CVACT(data.Dataset):
 
     def load_im(self, im_path, resize=None):
         print(f'=======================im_path: {im_path}')
-        im_path = im_path.replace('satview_polish', 'satview_polish/satview_polish')
-        print(f'=======================im_path: {im_path}')
         im = cv2.imread(im_path)
         im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
         if resize:
