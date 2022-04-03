@@ -171,7 +171,6 @@ class UnetGeneratorSkip(nn.Module):
 
         self.in_dim = input_nc
         input_ch  = input_nc
-        print(f'input_ch:{input_ch}')
         self.begin_pad = nn.ReflectionPad2d(3)
         self.begin_conv = SpectralNorm(nn.Conv2d(input_ch, 32, kernel_size=7, padding=0))
         self.begini_e = nn.InstanceNorm2d(32, affine=True)
