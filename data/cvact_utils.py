@@ -25,9 +25,9 @@ class CVACT(data.Dataset):
             grd_id_align_sem = self.root + '_' + self.all_data['panoIds'][i] + '/' + self.all_data['panoIds'][
                 i] + '_zoom_2_aligned_sem.jpg'
             if self.polar:
+                print("======================================\n")
                 sat_id_ori = self.root + 'polarmap/' + self.all_data['panoIds'][i] + '_satView_polish.jpg'
             else:
-                print("======================================\n")
                 sat_id_ori = self.root + 'satview_polish/satview_polish/' + self.all_data['panoIds'][i] + '_satView_polish.jpg'
             sat_id_sem = self.root + '_' + self.all_data['panoIds'][i] + '/' + self.all_data['panoIds'][i] + '_satView_sem.jpg'
             self.all_list.append([grd_id_ori, grd_id_align, grd_id_ori_sem,
