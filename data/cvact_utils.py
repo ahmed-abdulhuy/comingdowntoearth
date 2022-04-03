@@ -1,3 +1,4 @@
+import imp
 import torch.utils.data as data
 import scipy.io as sio
 import numpy as np
@@ -25,7 +26,6 @@ class CVACT(data.Dataset):
             grd_id_align_sem = self.root + '_' + self.all_data['panoIds'][i] + '/' + self.all_data['panoIds'][
                 i] + '_zoom_2_aligned_sem.jpg'
             if self.polar:
-                print("======================================\n")
                 sat_id_ori = self.root + 'polarmap/' + self.all_data['panoIds'][i] + '_satView_polish.jpg'
             else:
                 sat_id_ori = self.root + 'satview_polish/satview_polish/' + self.all_data['panoIds'][i] + '_satView_polish.jpg'
@@ -59,6 +59,8 @@ class CVACT(data.Dataset):
 
 
     def load_im(self, im_path, resize=None):
+        print(f'=======================im_path: {im_path}')
+        im_path = im_path.replace('satview_polish', 'satview_polish/satview_polish')
         print(f'=======================im_path: {im_path}')
         im = cv2.imread(im_path)
         im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
